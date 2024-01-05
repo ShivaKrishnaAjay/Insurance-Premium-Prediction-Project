@@ -10,7 +10,6 @@ def main():
     with open('gb_reg_model.pkl','rb') as pkl:
         train_model = pickle.load(pkl)
 
-    
     age = st.slider("**Enter Your Age**", 18,100)
     sex = st.selectbox('**Sex**', ('Male','Female'))
     if(sex=='Male'):
@@ -37,7 +36,6 @@ def main():
 
     button = st.button("**Predict**")
 
-    #if button is clicked make prediction
     if button:
         result = train_model.predict([[age, sex, bmi, children, smoker, region]])
         st.success(f"Predicted Insurance Amount: {result}")
